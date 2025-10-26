@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatNova</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1e1e2f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background watermark text */
+    body::before {
+      content: "ChatNova";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw;
+      color: rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .chat-container {
+      position: relative;
+      z-index: 1; /* above background text */
+      width: 400px;
+      max-width: 90%;
+      height: 600px;
+      background: #2c2c3e;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+    .chat-window {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+
+    .user {
+      align-self: flex-end;
+      background: #4ecca3;
+      color: #000;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background: #3a3a55;
+    }
+
+    .input-container {
+      display: flex;
+      padding: 10px;
+      background: #23233a;
+    }
+
+    #input {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 20px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      background: #3a3a55;
+      color: #fff;
+    }
+
+    #sendBtn {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: #4ecca3;
+      border: none;
+      border-radius: 20px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    #sendBtn:hover {
+      background: #45b88a;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div id="chat" class="chat-window"></div>
+    <div class="input-container">
+      <input type="text" id="input" placeholder="Type your message...">
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
